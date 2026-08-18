@@ -1,5 +1,7 @@
 # HassMelden
 
+English: [README.en.md](README.en.md)
+
 HassMelden erzeugt aus Screenshots von Online-Hass eine deutsche **Strafanzeige & Strafantrag** als PDF, Kopiertext und optionaler `.eml`-Export – für die Weitergabe an Online-Wache und Plattform-Meldewege.
 
 ## Prinzip: Zero-Persistence
