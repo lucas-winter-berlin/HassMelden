@@ -75,9 +75,9 @@ export function noOffenseAnalysis(overrides: Record<string, unknown> = {}) {
     accusedHandle: "@demo_ally_x",
     profileUrl: "https://x.com/demo_ally_x",
     accountId: "demo-uid-90001",
-    extractedText: "Danke fürs Teilen – du bist mutig. Solidarität!",
+    extractedText: "Danke fürs Teilen - du bist mutig. Solidarität!",
     legalCategorization:
-      "Kein Anhaltspunkt für Beleidigung, Verhetzung oder Bedrohung (§§ 185, 192a, 130, 241 StGB) – inhaltlich nicht strafrechtlich relevant.",
+      "Kein Anhaltspunkt für Beleidigung, Verhetzung oder Bedrohung (§§ 185, 192a, 130, 241 StGB) - inhaltlich nicht strafrechtlich relevant.",
     incidentDescription:
       "Unterstützungskommentar ohne herabwürdigenden oder bedrohenden Gehalt.",
     ...overrides,

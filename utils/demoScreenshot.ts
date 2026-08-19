@@ -26,7 +26,7 @@ export async function createDemoScreenshotFile(input: {
   ctx.fillRect(0, 0, width, 56);
   ctx.fillStyle = "#fff7ed";
   ctx.font = "bold 22px sans-serif";
-  ctx.fillText("⚠ TEST / DEMO – kein echter Vorfall", 24, 36);
+  ctx.fillText("⚠ TEST / DEMO - kein echter Vorfall", 24, 36);
 
   // Card
   ctx.fillStyle = "#1a2330";
@@ -51,7 +51,7 @@ export async function createDemoScreenshotFile(input: {
 
   ctx.fillStyle = "#64748b";
   ctx.font = "14px sans-serif";
-  ctx.fillText("HassMelden Prototyp – Dummy-Screenshot", 48, height - 56);
+  ctx.fillText("HassMelden Prototyp - Dummy-Screenshot", 48, height - 56);
 
   const blob = await new Promise<Blob>((resolve, reject) => {
     canvas.toBlob(

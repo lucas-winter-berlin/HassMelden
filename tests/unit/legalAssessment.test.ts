@@ -10,7 +10,7 @@ describe("legalAssessment", () => {
     it("erkennt explizite Negativ-Formulierungen", () => {
       expect(
         isNoCriminalFinding(
-          "Kein Anhaltspunkt für Beleidigung, Verhetzung oder Bedrohung (§§ 185, 192a, 130, 241 StGB) – inhaltlich nicht strafrechtlich relevant."
+          "Kein Anhaltspunkt für Beleidigung, Verhetzung oder Bedrohung (§§ 185, 192a, 130, 241 StGB) - inhaltlich nicht strafrechtlich relevant."
         )
       ).toBe(true);
       expect(isNoCriminalFinding("Keine Beleidigung erkennbar.")).toBe(true);

@@ -36,19 +36,19 @@ export const ONLINE_WACHE_SPECIAL_URLS: Partial<
   Record<BundeslandId, string>
 > = {
   /**
-   * Bayern – Anzeigeerstattung (Formularserver).
+   * Bayern - Anzeigeerstattung (Formularserver).
    * Hinweis: jsessionid/state/cc in Deep-Links können ablaufen;
    * ggf. auf den stabilen Dialog-Einstieg ohne Session-Parameter aktualisieren.
    */
   BY: "https://anzeige.polizei.bayern.de/",
 
-  /** Berlin – Internetwache */
+  /** Berlin - Internetwache */
   BE: "https://www.internetwache-polizei-berlin.de/index_start.html",
 
-  /** Nordrhein-Westfalen – Internetwache */
+  /** Nordrhein-Westfalen - Internetwache */
   NW: "https://internetwache.polizei.nrw/ich-moechte-eine-anzeige-erstatten/delikt-auswaehlen-online-anzeige-starten",
 
-  /** Sachsen-Anhalt – E-Revier */
+  /** Sachsen-Anhalt - E-Revier */
   ST: "https://polizei.sachsen-anhalt.de/das-sind-wir/polizei-interaktiv/e-revier/anzeige-erstatten",
 };
 

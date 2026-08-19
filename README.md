@@ -2,13 +2,13 @@
 
 English: [README.en.md](README.en.md)
 
-HassMelden erzeugt aus Screenshots von Online-Hass eine deutsche **Strafanzeige & Strafantrag** als PDF, Kopiertext und optionaler `.eml`-Export – für die Weitergabe an Online-Wache und Plattform-Meldewege.
+HassMelden erzeugt aus Screenshots von Online-Hass eine deutsche **Strafanzeige & Strafantrag** als PDF, Kopiertext und optionaler `.eml`-Export - für die Weitergabe an Online-Wache und Plattform-Meldewege.
 
 ## Prinzip: Zero-Persistence
 
 - Keine serverseitige Speicherung von Screenshots, Absender- oder Vorfallsdaten
 - Keine Datenbank, kein Versand an Polizei oder Plattformen durch die App
-- Die KI (Google Gemini) sieht **nur** die Screenshots und optionalen Freitext – keine Absenderdaten
+- Die KI (Google Gemini) sieht **nur** die Screenshots und optionalen Freitext - keine Absenderdaten
 - Optional können Absenderdaten lokal im Browser (`localStorage`) gespeichert werden
 
 ## Voraussetzungen
@@ -43,7 +43,7 @@ App öffnen: [http://localhost:3000](http://localhost:3000)
 | Variable | `GEMINI_API_KEY` |
 | Datei | `.env.local` (lokal; wird nicht committed) |
 | Vorlage | [.env.example](.env.example) |
-| Sichtbarkeit | **nur serverseitig** – kein `NEXT_PUBLIC_`-Präfix |
+| Sichtbarkeit | **nur serverseitig** - kein `NEXT_PUBLIC_`-Präfix |
 | Quelle | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
 
 Ohne Key antwortet `/api/generate-complaint` mit HTTP 503 (`AI_UNAVAILABLE`).
@@ -81,13 +81,13 @@ Testübersicht: [tests/README.md](tests/README.md)
 
 ## Dokumentation
 
-- [Technische Dokumentation](docs/TECHNISCHE-DOKUMENTATION.md) – Architektur, API, KI-Pipeline, Datenschutz
+- [Technische Dokumentation](docs/TECHNISCHE-DOKUMENTATION.md) - Architektur, API, KI-Pipeline, Datenschutz
 - [Backend-Tests](tests/README.md)
 - [Lizenz](LICENSE)
 
 ## Lizenz
 
-**PolyForm Noncommercial License 1.0.0** – kostenlose Nutzung für nicht-kommerzielle Zwecke. **Kommerzielle Nutzung ist nicht erlaubt**, außer nach gesonderter Absprache mit den Rechteinhaber:innen. Siehe [LICENSE](LICENSE).
+Dieses Repository is unter der [PolyForm Noncommercial License 1.0.0](LICENSE) lizensiert. Erlaubt ist die kostenlose Nutzung für nicht-kommerzielle Zwecke. Die kommerzielle Nutzung ist nicht gestattet. Die vollständigen Bedingungen finden Sie im Lizenztext.
 
 ## Disclaimer
 

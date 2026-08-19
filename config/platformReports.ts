@@ -2,7 +2,7 @@
  * Offizielle Melde-/Kontakt-Einstiege der Plattformen.
  *
  * Hier anpassen, wenn Help-Center-URLs umziehen.
- * HassMelden sendet keine Meldungen selbst – nur Deep-Links.
+ * HassMelden sendet keine Meldungen selbst - nur Deep-Links.
  */
 
 import type { Platform } from "@/lib/types";

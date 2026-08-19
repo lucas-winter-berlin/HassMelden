@@ -214,10 +214,10 @@ const RAW: RawDashboard = {
     { bucket: "5", label: "5 Screenshots", count: 4 },
   ],
   byProcessingTime: [
-    { bucket: "0-4", label: "0–4 s", count: 28, avgSeconds: 3.1 },
-    { bucket: "4-7", label: "4–7 s", count: 71, avgSeconds: 5.6 },
-    { bucket: "7-10", label: "7–10 s", count: 54, avgSeconds: 8.4 },
-    { bucket: "10-15", label: "10–15 s", count: 22, avgSeconds: 12.1 },
+    { bucket: "0-4", label: "0-4 s", count: 28, avgSeconds: 3.1 },
+    { bucket: "4-7", label: "4-7 s", count: 71, avgSeconds: 5.6 },
+    { bucket: "7-10", label: "7-10 s", count: 54, avgSeconds: 8.4 },
+    { bucket: "10-15", label: "10-15 s", count: 22, avgSeconds: 12.1 },
     { bucket: "15+", label: "15 s+", count: 9, avgSeconds: 18.7 },
   ],
   byRegion: [

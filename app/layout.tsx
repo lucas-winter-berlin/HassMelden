@@ -17,7 +17,7 @@ const body = Source_Sans_3({
 export const metadata: Metadata = {
   title: "HassMelden",
   description:
-    "Melden gegen Hass im Internet – Strafanzeige aus Screenshots erstellen (Zero-Persistence)",
+    "Melden gegen Hass im Internet - Strafanzeige aus Screenshots erstellen (Zero-Persistence)",
 };
 
 export default function RootLayout({

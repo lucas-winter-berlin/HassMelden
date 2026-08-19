@@ -1,6 +1,6 @@
 /**
  * Input-/Output-Sanitization gegen Prompt-Injection und schädliche Steuerzeichen.
- * Kein Ersatz für Modell-Guards – Defense in Depth vor dem Gemini-Call und danach.
+ * Kein Ersatz für Modell-Guards - Defense in Depth vor dem Gemini-Call und danach.
  */
 
 /** Steuerzeichen außer Tab/LF/CR */

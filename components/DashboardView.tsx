@@ -458,7 +458,7 @@ export default function DashboardView() {
           </Card>
           <Card
             title="Region / PLZ (aggregiert)"
-            subtitle="Nur Präfixe – keine Adressen"
+            subtitle="Nur Präfixe - keine Adressen"
           >
             <BarList
               accentClass="bg-emerald-700"
@@ -533,7 +533,7 @@ export default function DashboardView() {
       <Section id="timeline" eyebrow="05" title="Zeitverlauf">
         <Card
           title={data.seriesTitle}
-          subtitle="Gestapelt nach Status – reagiert auf Zeitraum-Filter"
+          subtitle="Gestapelt nach Status - reagiert auf Zeitraum-Filter"
         >
           <SeriesChart points={data.series} />
         </Card>

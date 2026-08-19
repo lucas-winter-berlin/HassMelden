@@ -173,7 +173,7 @@ function embedScreenshot(
       });
       doc.moveDown(0.45);
 
-      // Hash must stay with image – if somehow near edge, new page with hash only is worse;
+      // Hash must stay with image - if somehow near edge, new page with hash only is worse;
       // re-check and pull hash up by ensuring space for meta lines
       if (remainingPageHeight(doc) < HASH_META_HEIGHT) {
         doc.addPage();
@@ -182,7 +182,7 @@ function embedScreenshot(
           .fontSize(8)
           .fillColor("#666666")
           .text(
-            `(Fortsetzung Beweismittel – Screenshot ${index + 1} von ${total})`
+            `(Fortsetzung Beweismittel - Screenshot ${index + 1} von ${total})`
           );
         doc.fillColor("#000000");
         doc.moveDown(0.3);
@@ -286,7 +286,7 @@ export async function buildComplaintPdf(input: {
     size: "A4",
     margins: { top: 56, bottom: 56, left: 56, right: 56 },
     info: {
-      Title: "Strafanzeige & Strafantrag – HassMelden",
+      Title: "Strafanzeige & Strafantrag - HassMelden",
       Author: "HassMelden",
     },
   });

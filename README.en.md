@@ -81,13 +81,13 @@ Test overview: [tests/README.md](tests/README.md) (German)
 
 ## Documentation
 
-- [Technical documentation](docs/TECHNISCHE-DOKUMENTATION.md) (German) – architecture, API, AI pipeline, privacy
+- [Technical documentation](docs/TECHNISCHE-DOKUMENTATION.md) (German) - architecture, API, AI pipeline, privacy
 - [Backend tests](tests/README.md) (German)
 - [License](LICENSE)
 
 ## License
 
-**PolyForm Noncommercial License 1.0.0** – free use for non-commercial purposes. **Commercial use is not permitted**, except by separate agreement with the rights holders. See [LICENSE](LICENSE).
+This repository is licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE). Noncommercial use, study, and sharing are permitted; commercial use is not. See the license text for the full terms.
 
 ## Disclaimer
 

@@ -1,6 +1,6 @@
-# HassMelden – Technische Dokumentation
+# HassMelden - Technische Dokumentation
 
-HassMelden erzeugt aus Screenshots von Online-Hass eine deutsche **Strafanzeige & Strafantrag** (PDF, Kopiertext, `.eml`). Architekturprinzip: **Zero-Persistence** – keine serverseitige Speicherung von Nutzerdaten, keine Protokollierung von Inhalten, kein Versand an Behörden oder Plattformen durch die App.
+HassMelden erzeugt aus Screenshots von Online-Hass eine deutsche **Strafanzeige & Strafantrag** (PDF, Kopiertext, `.eml`). Architekturprinzip: **Zero-Persistence** - keine serverseitige Speicherung von Nutzerdaten, keine Protokollierung von Inhalten, kein Versand an Behörden oder Plattformen durch die App.
 
 | | |
 |---|---|
@@ -57,7 +57,7 @@ sequenceDiagram
   end
 ```
 
-**Wichtig:** Die KI sieht **nur** die Screenshot-Bilder und den optionalen Freitext `userContext`. Absenderdaten (Name, Adresse, E-Mail), Plattformwahl, Tatzeit und URLs gehen **nicht** in den Gemini-Request – sie fließen erst danach in Text/PDF.
+**Wichtig:** Die KI sieht **nur** die Screenshot-Bilder und den optionalen Freitext `userContext`. Absenderdaten (Name, Adresse, E-Mail), Plattformwahl, Tatzeit und URLs gehen **nicht** in den Gemini-Request - sie fließen erst danach in Text/PDF.
 
 ---
 
@@ -85,7 +85,7 @@ Sechs Schritte:
 | 4 | Prüfen | Zusammenfassung + Generieren; bei `NO_OFFENSE` Hinweisbanner |
 | 5 | Ergebnis | PDF, Kopiertexte, Online-Wache, Plattform-Meldung, `.eml`, Hashes |
 
-Validierung erfolgt **schrittweise** clientseitig; vor dem API-Call zusätzlich Schritte 1–3.
+Validierung erfolgt **schrittweise** clientseitig; vor dem API-Call zusätzlich Schritte 1-3.
 
 ### 2.3 Bildvorbereitung (`utils/imageHandler.ts`)
 
@@ -97,7 +97,7 @@ Vor dem Upload:
 4. Max. **10 MB** pro Datei.
 5. Preview via `URL.createObjectURL` (muss vom Caller revoked werden).
 
-HEIC kommt **nie** unverändert an die API – Gemini und PDF erwarten PNG/JPEG/WEBP.
+HEIC kommt **nie** unverändert an die API - Gemini und PDF erwarten PNG/JPEG/WEBP.
 
 ### 2.4 Request an die API
 
@@ -105,7 +105,7 @@ HEIC kommt **nie** unverändert an die API – Gemini und PDF erwarten PNG/JPEG/
 
 | Feld | Pflicht | Typ |
 |------|---------|-----|
-| `screenshots` | ja (1–5) | File(s), mehrfach gleicher Key |
+| `screenshots` | ja (1-5) | File(s), mehrfach gleicher Key |
 | `platform` | ja | `X` \| `INSTAGRAM` \| `FACEBOOK` \| `TIKTOK` \| `OTHER` |
 | `incidentDate` | ja | `YYYY-MM-DDTHH:mm` (intern; UI zeigt deutsches Datumsformat) |
 | `complainant` | ja | JSON-String |
@@ -135,10 +135,10 @@ Bei `addressDisclosure: "protected"` ist `deliveryNote` Pflicht (ladungsfähige 
 
 Erfolgsantwort (`success: true`) enthält u. a.:
 
-- `pdfBase64` – Data-URL (`data:application/pdf;base64,…`)
+- `pdfBase64` - Data-URL (`data:application/pdf;base64,…`)
 - Analysefelder: `accusedHandle`, `profileUrl`, `accountId`, `extractedText`, `legalCategorization`, `incidentDescription`
-- `rawCopyText` – fertiger Anzeigentext
-- `screenshotHashes` – SHA-256 je Bild
+- `rawCopyText` - fertiger Anzeigentext
+- `screenshotHashes` - SHA-256 je Bild
 
 Client-Aktionen im Ergebnis:
 
@@ -148,7 +148,7 @@ Client-Aktionen im Ergebnis:
 4. Link zur **Plattform-Meldung** (`config/platformReports.ts`) + optional Profil öffnen
 5. Optional `.eml` und Hash-Zusammenfassung
 
-E-Mail: `utils/emailExport.ts` baut eine RFC-822-`.eml` mit Textkörper + PDF-Anhang – **nur Download**, kein SMTP.
+E-Mail: `utils/emailExport.ts` baut eine RFC-822-`.eml` mit Textkörper + PDF-Anhang - **nur Download**, kein SMTP.
 
 ### 2.6 Lokale Persistenz (nur Browser)
 
@@ -162,7 +162,7 @@ E-Mail: `utils/emailExport.ts` baut eine RFC-822-`.eml` mit Textkörper + PDF-An
 
 ## 3. Backend
 
-Alles relevante Backend liegt unter `app/api/` und `lib/` – kein separates Microservice, keine Datenbank.
+Alles relevante Backend liegt unter `app/api/` und `lib/` - kein separates Microservice, keine Datenbank.
 
 ### 3.1 Endpoint
 
@@ -178,13 +178,13 @@ Content-Type: multipart/form-data
 
 ### 3.2 Pipeline in Reihenfolge
 
-1. **`validateGenerateRequest(formData)`** (`lib/validation.ts`) – inkl. Sanitize von Nutzertexten
+1. **`validateGenerateRequest(formData)`** (`lib/validation.ts`) - inkl. Sanitize von Nutzertexten
 2. **`analyzeScreenshotsWithVision(...)`** (`lib/gemini.ts`) → `VisionAnalysis`
-3. **`mergeAccusedIds(...)`** – Priorität Profil/ID: Nutzerangabe → KI → Heuristik aus Handle+Plattform
-4. **`isNoCriminalFinding(...)`** (`lib/legalAssessment.ts`) – bei Negativbefund **Abbruch ohne PDF**
+3. **`mergeAccusedIds(...)`** - Priorität Profil/ID: Nutzerangabe → KI → Heuristik aus Handle+Plattform
+4. **`isNoCriminalFinding(...)`** (`lib/legalAssessment.ts`) - bei Negativbefund **Abbruch ohne PDF**
 5. **SHA-256** je Screenshot (`lib/evidence.ts`)
 6. **`buildRawCopyText`** (`lib/complaintText.ts`)
-7. **`buildComplaintPdf`** (`lib/pdf.ts`) – bettet Originalbilder + Hashes ein
+7. **`buildComplaintPdf`** (`lib/pdf.ts`) - bettet Originalbilder + Hashes ein
 8. JSON-Response (kein Schreiben auf Disk)
 
 ### 3.3 Validierung (`lib/validation.ts`)
@@ -205,11 +205,11 @@ Fehler → HTTP **400** / `VALIDATION_ERROR`.
 | HTTP | Code | Wann |
 |------|------|------|
 | 400 | `VALIDATION_ERROR` | Ungültige Eingabe |
-| 422 | `NO_OFFENSE` | KI sieht keinen strafrechtlich relevanten Inhalt – **kein PDF** |
+| 422 | `NO_OFFENSE` | KI sieht keinen strafrechtlich relevanten Inhalt - **kein PDF** |
 | 503 | `AI_UNAVAILABLE` | Kein Key, leere/ungültige Gemini-Antwort, API-Fehler |
 | 500 | `INTERNAL_ERROR` | Sonstiges |
 
-Bei `NO_OFFENSE` liefert die API optional `assessment` (Handle, Extrakt, Einordnung, Beschreibung) für die UI – ohne `pdfBase64`.
+Bei `NO_OFFENSE` liefert die API optional `assessment` (Handle, Extrakt, Einordnung, Beschreibung) für die UI - ohne `pdfBase64`.
 
 ### 3.5 Merge der Beschuldigten-IDs
 
@@ -223,7 +223,7 @@ profileUrl = Nutzer-profileUrl
 accountId  = Nutzer-accountId || analysis.accountId
 ```
 
-`guessProfileUrl` (`lib/evidence.ts`) baut z. B. `https://x.com/{handle}` – nur Best-Effort, kein API-Call zur Plattform.
+`guessProfileUrl` (`lib/evidence.ts`) baut z. B. `https://x.com/{handle}` - nur Best-Effort, kein API-Call zur Plattform.
 
 ---
 
@@ -231,7 +231,7 @@ accountId  = Nutzer-accountId || analysis.accountId
 
 Zentrale Datei: **`lib/gemini.ts`**. Sanitize: **`lib/sanitize.ts`**.
 
-### 4.1 Was die KI bekommt – und was nicht
+### 4.1 Was die KI bekommt - und was nicht
 
 | Geht an Gemini | Geht **nicht** an Gemini |
 |----------------|---------------------------|
@@ -264,7 +264,7 @@ genAI.getGenerativeModel({
 
 ### 4.3 Aufbau des Multimodal-Requests (`Parts`)
 
-Gemini erhält ein Array von `Part`s – Text und Bilder:
+Gemini erhält ein Array von `Part`s - Text und Bilder:
 
 ```
 [0] text: SYSTEM_PROMPT
@@ -276,9 +276,9 @@ Gemini erhält ein Array von `Part`s – Text und Bilder:
 …
 ```
 
-Die Bilder werden **in Upload-Reihenfolge** nummeriert. Encoding: `Buffer.toString("base64")` – inline, kein Cloud-Storage-Upload. Buffer bleiben nur im Request-Scope für PDF/Hashes.
+Die Bilder werden **in Upload-Reihenfolge** nummeriert. Encoding: `Buffer.toString("base64")` - inline, kein Cloud-Storage-Upload. Buffer bleiben nur im Request-Scope für PDF/Hashes.
 
-### 4.4 Systemprompt – Aufgaben der KI
+### 4.4 Systemprompt - Aufgaben der KI
 
 Rollenbeschreibung: juristischer Assistent DE-Strafrecht, Fokus digitale Hasskriminalität (§§ 185, 192a, 130, 241 StGB).
 
@@ -286,9 +286,9 @@ Explizite Aufgaben:
 
 1. **Account-Handle** des Beschuldigten extrahieren  
 2. **Profil-URL** und/oder **interne Account-ID**, falls im Bild sichtbar, sonst `null`  
-3. **OCR / Originaltext** – bei mehreren Bildern zusammenhängenden Kontext  
+3. **OCR / Originaltext** - bei mehreren Bildern zusammenhängenden Kontext  
 4. **Sachliche Vorfallsbeschreibung** (nutzt ggf. `userContext`)  
-5. **Rechtliche Einordnung** – Verdacht auf StGB-Paragrafen **oder** klare Negativ-Feststellung (kein Delikt)
+5. **Rechtliche Einordnung** - Verdacht auf StGB-Paragrafen **oder** klare Negativ-Feststellung (kein Delikt)
 
 Ausgabe **strikt als JSON** mit festen Keys:
 
@@ -350,7 +350,7 @@ Ausgabe **strikt als JSON** mit festen Keys:
 sha256Hex(buffer) // Node crypto, Hex-String
 ```
 
-Zeitstempel-Label: `formatEvidenceTimestamp()` mit Zeitzone `Europe/Berlin` – Zeitpunkt der **Generierung** in HassMelden.
+Zeitstempel-Label: `formatEvidenceTimestamp()` mit Zeitzone `Europe/Berlin` - Zeitpunkt der **Generierung** in HassMelden.
 
 ### 5.2 Rohtext (`lib/complaintText.ts`)
 
@@ -453,11 +453,11 @@ Siehe auch [README.md](../README.md).
 
 ## Kurzfassung: KI-Datenweg
 
-1. Browser konvertiert ggf. HEIC → JPEG und sendet 1–5 Bilder + optionalen Kontext.  
+1. Browser konvertiert ggf. HEIC → JPEG und sendet 1-5 Bilder + optionalen Kontext.  
 2. Server validiert MIME/Größe, sanitized Texte und liest Bytes in `Buffer`.  
 3. `gemini.ts` packt Systemprompt + Kontext + nummerierte `inlineData`-Bilder in einen JSON-Mode-Call (temperature 0.2, Safety `BLOCK_NONE`).  
 4. Antwort-JSON wird geparst, normalisiert und sanitized (`VisionAnalysis`).  
 5. Nutzer-URLs/IDs überschreiben bzw. ergänzen KI-Extraktion.  
-6. Negativbefund → `422 NO_OFFENSE` ohne PDF; sonst Text + PDF mit Hashes – ohne erneuten KI-Call.
+6. Negativbefund → `422 NO_OFFENSE` ohne PDF; sonst Text + PDF mit Hashes - ohne erneuten KI-Call.
 
 Stand: Projektversion `0.1.0` (MVP).

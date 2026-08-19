@@ -1,6 +1,6 @@
 /**
  * Builds a downloadable .eml (RFC 822) with plain-text body and PDF attachment.
- * Opens in the user's local mail client – nothing is sent by HassMelden.
+ * Opens in the user's local mail client - nothing is sent by HassMelden.
  */
 export function buildComplaintEml(input: {
   fromName: string;

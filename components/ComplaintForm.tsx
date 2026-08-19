@@ -209,7 +209,7 @@ function profileUrlInputWarning(value: string): string | null {
     return null;
   } catch {
     if (!/^https?:\/\//i.test(trimmed)) {
-      return "Bitte eine vollständige URL angeben (z. B. https://instagram.com/nutzername) – nicht nur den Benutzernamen.";
+      return "Bitte eine vollständige URL angeben (z. B. https://instagram.com/nutzername) - nicht nur den Benutzernamen.";
     }
     return "Die eingegebene Profil-URL scheint ungültig zu sein.";
   }
@@ -262,7 +262,7 @@ function DemoPanel({
           />
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-wider text-amber-900">
-              Nur Test – nicht Produktion
+              Nur Test - nicht Produktion
             </p>
             <h2
               id="demo-heading"
@@ -432,7 +432,7 @@ export default function ComplaintForm() {
       const guessed = guessPlatformFromUrl(result.profileUrl);
       if (guessed) setPlatform(guessed);
     }
-    // Nur bei neuem result anwenden – Felder nicht überschreiben, wenn Nutzer:in editiert
+    // Nur bei neuem result anwenden - Felder nicht überschreiben, wenn Nutzer:in editiert
     // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional one-way sync from result
   }, [result]);
 
@@ -905,7 +905,7 @@ export default function ComplaintForm() {
       const eml = buildComplaintEml({
         fromName: complainant.fullName.trim() || "HassMelden",
         fromEmail: complainant.email.trim() || "anzeige@example.com",
-        subject: `Strafanzeige – ${result.accusedHandle}`,
+        subject: `Strafanzeige - ${result.accusedHandle}`,
         bodyText: result.rawCopyText,
         pdfBase64DataUrl: result.pdfBase64,
       });
@@ -1091,7 +1091,7 @@ export default function ComplaintForm() {
                     <strong className="font-semibold text-[var(--ink)]">
                       Strafanzeige &amp; Strafantrag
                     </strong>{" "}
-                    zu erstellen – als PDF, Kopiertext und E-Mail-Datei. Du
+                    zu erstellen - als PDF, Kopiertext und E-Mail-Datei. Du
                     prüfst alles selbst und reichst ein, wenn du bereit bist.
                   </p>
                 </div>
@@ -1153,7 +1153,7 @@ export default function ComplaintForm() {
                       Keine Speicherung auf dem Server.
                     </span>{" "}
                     Deine Screenshots und Angaben werden nur für die Erstellung
-                    verarbeitet – HassMelden speichert sie nicht und versendet
+                    verarbeitet - HassMelden speichert sie nicht und versendet
                     nichts an Behörden.
                   </p>
                 </div>
@@ -1262,8 +1262,8 @@ export default function ComplaintForm() {
                           : "Weitere Screenshots hinzufügen oder hierher ziehen"}
                     </span>
                     <span className="text-sm text-[var(--muted)]">
-                      Chat-/Kommentarverlauf als Bildfolge – PNG, JPEG, WEBP, HEIC
-                      – je max. 10 MB
+                      Chat-/Kommentarverlauf als Bildfolge - PNG, JPEG, WEBP, HEIC
+                      - je max. 10 MB
                     </span>
                     {(converting || anyHeicConverted) && (
                       <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-[var(--ink)] px-3 py-1 text-xs text-white">
@@ -1313,7 +1313,7 @@ export default function ComplaintForm() {
                     className="rounded-lg bg-teal-50 px-3 py-2 text-xs text-teal-950 ring-1 ring-teal-600/20"
                   >
                     Felder wurden soweit möglich aus der KI-Analyse
-                    vorausgefüllt – bitte prüfen und bei Bedarf anpassen.
+                    vorausgefüllt - bitte prüfen und bei Bedarf anpassen.
                   </p>
                 )}
 
@@ -1610,7 +1610,7 @@ export default function ComplaintForm() {
                   </legend>
                   <p className="text-sm text-[var(--muted)]">
                     Bei Antragsdelikten braucht die Behörde eine ladungsfähige
-                    Anschrift – die muss nicht deine Privatadresse sein. Über
+                    Anschrift - die muss nicht deine Privatadresse sein. Über
                     Akteneinsicht könnte der Beschuldigte sonst deine Adresse sehen.
                   </p>
                   <label className="flex items-start gap-3 text-sm">
@@ -1691,7 +1691,7 @@ export default function ComplaintForm() {
                     Prüfen
                   </h2>
                   <p className="mt-1 text-sm text-[var(--muted)]">
-                    Kurzüberblick – mit „Bearbeiten“ springst du direkt zum
+                    Kurzüberblick - mit „Bearbeiten“ springst du direkt zum
                     jeweiligen Abschnitt.
                   </p>
                 </div>
@@ -2024,7 +2024,7 @@ export default function ComplaintForm() {
                     PDF-Strafanzeige herunterladen
                   </button>
                   <p className="text-sm leading-relaxed text-[var(--muted)]">
-                    Lade das Dokument herunter – du musst es gleich im Formular
+                    Lade das Dokument herunter - du musst es gleich im Formular
                     der Polizei als Anhang hochladen.
                   </p>
                 </div>
@@ -2139,7 +2139,7 @@ export default function ComplaintForm() {
                   <p className="text-center text-xs leading-relaxed text-[var(--muted)]">
                     {onlineWache.entry
                       ? `Öffnet das offizielle Portal der Polizei ${onlineWache.entry.name} in einem neuen Tab`
-                      : "Öffnet das offizielle Online-Wache-Portal der Polizei in einem neuen Tab – bitte Bundesland dort wählen"}
+                      : "Öffnet das offizielle Online-Wache-Portal der Polizei in einem neuen Tab - bitte Bundesland dort wählen"}
                   </p>
                 </div>
 
@@ -2196,7 +2196,7 @@ export default function ComplaintForm() {
                 )}
               </section>
 
-              {/* Advanced – below main card */}
+              {/* Advanced - below main card */}
               <div className="space-y-2">
                 <div className="overflow-hidden rounded-xl border border-[var(--line)] bg-white/60">
                   <button
