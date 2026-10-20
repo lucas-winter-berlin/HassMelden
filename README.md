@@ -1,94 +1,41 @@
-# HassMelden
+# app-hass-melden
 
-English: [README.en.md](README.en.md)
+Public. License: MIT.
 
-HassMelden erzeugt aus Screenshots von Online-Hass eine deutsche **Strafanzeige & Strafantrag** als PDF, Kopiertext und optionaler `.eml`-Export - für die Weitergabe an Online-Wache und Plattform-Meldewege.
+Build a German criminal complaint PDF from screenshots of online hate. The app does not store incident data on a server and does not send anything to the police.
 
-## Prinzip: Zero-Persistence
+German UI. German README: [README.de.md](README.de.md).
 
-- Keine serverseitige Speicherung von Screenshots, Absender- oder Vorfallsdaten
-- Keine Datenbank, kein Versand an Polizei oder Plattformen durch die App
-- Die KI (Google Gemini) sieht **nur** die Screenshots und optionalen Freitext - keine Absenderdaten
-- Optional können Absenderdaten lokal im Browser (`localStorage`) gespeichert werden
+GitHub folder name is still `HassMelden`. Intended Forgejo name is `app-hass-melden`.
 
-## Voraussetzungen
+## Start
 
-- Node.js 18+ (empfohlen: aktuelle LTS)
-- npm
-- Google Gemini API-Key ([Google AI Studio](https://aistudio.google.com/apikey))
-
-## Schnellstart
-
-```bash
+```
 npm install
-cp .env.example .env.local
-```
-
-In `.env.local` den Key eintragen:
-
-```env
-GEMINI_API_KEY=dein_schlüssel_hier
-```
-
-```bash
+copy .env.example .env.local
 npm run dev
 ```
 
-App öffnen: [http://localhost:3000](http://localhost:3000)
+Set `GEMINI_API_KEY` in `.env.local`. Open http://localhost:3000
 
-## API-Key
+## Commands
 
-| | |
-|---|---|
-| Variable | `GEMINI_API_KEY` |
-| Datei | `.env.local` (lokal; wird nicht committed) |
-| Vorlage | [.env.example](.env.example) |
-| Sichtbarkeit | **nur serverseitig** - kein `NEXT_PUBLIC_`-Präfix |
-| Quelle | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
-
-Ohne Key antwortet `/api/generate-complaint` mit HTTP 503 (`AI_UNAVAILABLE`).
-
-## Architektur (Kurz)
-
-```mermaid
-sequenceDiagram
-  participant Browser
-  participant API as POST_generate-complaint
-  participant Gemini as Gemini_Vision
-  participant Docs as Text_PDF
-
-  Browser->>API: Screenshots plus Formulardaten
-  API->>Gemini: nur Bilder und optional userContext
-  Gemini-->>API: VisionAnalysis JSON
-  API->>API: NO_OFFENSE Check
-  API->>Docs: Hashes Text PDF
-  Docs-->>Browser: Ergebnis lokal exportieren
+```
+npm run build
+npm start
+npm test
+npm run lint
 ```
 
-Details: [docs/TECHNISCHE-DOKUMENTATION.md](docs/TECHNISCHE-DOKUMENTATION.md)
+## Secrets
 
-## Scripts
+`GEMINI_API_KEY` in `.env.local` only. Template: `.env.example`. Server-side, no `NEXT_PUBLIC_`.
 
-| Befehl | Zweck |
-|--------|--------|
-| `npm run dev` | Entwicklungsserver |
-| `npm run build` / `npm start` | Production Build / Start |
-| `npm test` | Backend-Tests (Vitest) |
-| `npm run test:watch` | Tests im Watch-Mode |
-| `npm run lint` | ESLint |
+## Docs
 
-Testübersicht: [tests/README.md](tests/README.md)
-
-## Dokumentation
-
-- [Technische Dokumentation](docs/TECHNISCHE-DOKUMENTATION.md) - Architektur, API, KI-Pipeline, Datenschutz
-- [Backend-Tests](tests/README.md)
-- [Lizenz](LICENSE)
-
-## Lizenz
-
-Dieses Repository is unter der [PolyForm Noncommercial License 1.0.0](LICENSE) lizensiert. Erlaubt ist die kostenlose Nutzung für nicht-kommerzielle Zwecke. Die kommerzielle Nutzung ist nicht gestattet. Die vollständigen Bedingungen finden Sie im Lizenztext.
-
-## Disclaimer
-
-HassMelden ist **keine Rechtsberatung**. Die KI-Einordnung ist eine vorläufige Vorprüfung. Nutzer:innen prüfen den Inhalt und reichen die Anzeige selbst bei Polizei bzw. Plattform ein. Die App versendet nichts.
+| Doc | Content |
+|-----|---------|
+| [docs/README.md](docs/README.md) | Index |
+| [docs/TECHNISCHE-DOKUMENTATION.md](docs/TECHNISCHE-DOKUMENTATION.md) | Technical notes (German) |
+| [tests/README.md](tests/README.md) | Tests (German) |
+| [README.de.md](README.de.md) | German product README |
