@@ -1,0 +1,11 @@
+name: app-hass-melden
+kind: app
+visibility: public
+description: Build a German criminal complaint PDF from screenshots of online hate.
+languages: [typescript, react]
+status: active
+owner: baxx
+license: MIT
+product: HassMelden
+former: HassMelden
+github: lucas-winter-berlin/HassMelden
