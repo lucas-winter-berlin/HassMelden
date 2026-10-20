@@ -8,7 +8,7 @@ export function makePngFile(
   name = "screenshot.png",
   buffer: Buffer = TINY_PNG_BUFFER
 ): File {
-  return new File([buffer], name, { type: "image/png" });
+  return new File([Uint8Array.from(buffer)], name, { type: "image/png" });
 }
 
 export function baseComplainant(overrides: Record<string, unknown> = {}) {
