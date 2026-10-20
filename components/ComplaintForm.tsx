@@ -362,7 +362,7 @@ export default function ComplaintForm() {
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const dragDepthRef = useRef(0);
-  const resultRef = useRef<HTMLElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
   const formColumnRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
