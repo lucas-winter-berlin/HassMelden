@@ -6,8 +6,6 @@ Build a German criminal complaint PDF from screenshots of online hate. The app d
 
 German UI. German README: [README.de.md](README.de.md).
 
-GitHub folder name is still `HassMelden`. Intended Forgejo name is `app-hass-melden`.
-
 ## Start
 
 ```
